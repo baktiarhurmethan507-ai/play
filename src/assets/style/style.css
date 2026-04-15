@@ -1,0 +1,552 @@
+/* КИБЕРСПОРТИВНЫЙ DARK-ДИЗАЙН 2.0 */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700&display=swap');
+
+/* Глобальные настройки */
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #050505; /* Чистый черный */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* Убираем синее выделение при клике на мобилках */
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    color: #e0e0e0;
+    overflow-x: hidden;
+    /* Фоновый шум для текстуры */
+    background-image: 
+        linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)),
+        url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+}
+
+/* ШАПКА МАГАЗИНА */
+.header {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    background: linear-gradient(180deg, #0f0f0f 0%, transparent 100%);
+}
+
+.header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: #fff;
+    text-transform: uppercase;
+    /* Эффект глитча/свечения */
+    text-shadow: 3px 3px #8b5cf6, -3px -3px #ec4899;
+}
+
+/* НАВИГАЦИЯ */
+.nav-menu {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-menu span {
+    padding: 12px 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #8b5cf6;
+    border: 2px solid #8b5cf6;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); /* Скошенные края */
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nav-menu span:hover {
+    background: #8b5cf6;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+/* СЕТКА ТОВАРОВ */
+.grid-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 40px;
+    padding: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* КАРТОЧКА ИГРЫ */
+.card {
+    background: #0f0f0f;
+    border: 1px solid #1f1f1f;
+    position: relative;
+    padding: 15px;
+    transition: all 0.3s ease;
+    /* Обрезаем угол для стиля */
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);
+}
+
+.card:hover {
+    border-color: #8b5cf6;
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Индикатор статуса (Category) */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: #8b5cf6;
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+
+/* БОКС ДЛЯ КАРТИНКИ */
+.card-img-box {
+    width: 100%;
+    height: 350px;
+    background: #000;
+    overflow: hidden;
+    border-bottom: 3px solid #8b5cf6;
+}
+
+.card-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.4);
+    transition: 0.5s;
+}
+
+.card:hover img {
+    filter: grayscale(0);
+    transform: scale(1.1);
+}
+
+/* ТЕКСТ В КАРТОЧКЕ */
+.card-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    margin: 20px 0 10px 0;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.card-price {
+    font-size: 32px;
+    font-weight: 900;
+    color: #fff;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.card-price::after {
+    content: ' KZT';
+    font-size: 14px;
+    color: #8b5cf6;
+}
+
+/* КНОПКА (если есть в коде) */
+.card button {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid #8b5cf6;
+    color: #8b5cf6;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card button:hover {
+    background: #8b5cf6;
+    color: #fff;
+}
+
+/* --- Глобальные исправления --- */
+.full-screen-fix {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #121212; /* Глубокий темный фон */
+    color: #e0e0e0;
+}
+
+/* --- Укрупненная Шапка (Header) --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 40px; /* Увеличили отступы */
+    background-color: #1a1a1a;
+    border-bottom: 2px solid #2a2a2a;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.main-header button.back-btn {
+    background: #ff5c5c; /* Твой красный цвет для кнопки "Назад" */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px; /* Крупнее шрифт */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.main-header button.back-btn:hover {
+    background: #ff3333;
+}
+
+.header-logo {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.menu-icon {
+    font-size: 30px; /* Крупнее иконка меню */
+    color: white;
+    cursor: pointer;
+}
+
+/* --- Главный контейнер для двух колонок --- */
+.detail-content-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Для адаптивности на мобильных */
+    gap: 50px; /* Расстояние между картинкой и текстом */
+    max-width: 1400px; /* Ограничим максимальную ширину контента */
+    margin: 60px auto; /* Центрируем и добавляем отступ сверху */
+    padding: 0 40px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- Левая колонка (Картинка) --- */
+.detail-left-col {
+    flex: 0 1 450px; /* Фиксированная базовая ширина для картинки */
+    width: 100%;
+}
+
+.game-poster-wrapper {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6); /* Красивая тень */
+}
+
+.game-detail-poster {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* --- Правая колонка (Информация) --- */
+.detail-right-col {
+    flex: 1 1 500px; /* Занимает оставшееся место */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Вертикальный отступ между элементами */
+}
+
+.game-detail-title {
+    font-size: 32px; /* Крупный заголовок */
+    font-weight: 800;
+    color: white;
+    margin: 0;
+}
+
+.game-detail-date {
+    font-size: 14px;
+    color: #888;
+    margin: 0;
+}
+
+.game-detail-description {
+    font-size: 16px;
+    line-height: 1.7; /* Увеличили межстрочный интервал для читаемости */
+    color: #bbb;
+    background-color: #1a1a1a;
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 4px solid #ff5c5c; /* Акцентная полоса */
+}
+
+/* Блок покупки */
+.game-purchase-block {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.price-tag {
+    font-size: 24px;
+    font-weight: 800;
+    color: #ffcc00; /* Желтый для цены */
+    background: rgba(255, 204, 0, 0.1);
+    padding: 10px 20px;
+    border-radius: 6px;
+}
+
+.buy-btn {
+    background-color: #ffcc00; /* Желтая кнопка */
+    color: #000;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.1s, background 0.2s;
+    flex-grow: 1; /* Растягиваем кнопку */
+}
+
+.buy-btn:hover {
+    background-color: #e6b800;
+    transform: scale(1.02);
+}
+
+.buy-btn:active {
+    transform: scale(0.98);
+}
+
+.game-meta-info {
+    font-size: 12px;
+    color: #666;
+    margin-top: auto; /* Прижимаем к низу колонки */
+}
+
+.not-found {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 100px;
+    color: #ff5c5c;
+}
+
+/* --- Адаптивность для мобильных --- */
+@media (max-width: 900px) {
+    .detail-content-wrapper {
+        flex-direction: column; /* Колонки друг под другом */
+        gap: 30px;
+        margin: 30px auto;
+    }
+
+    .detail-left-col {
+        flex: 1 1 auto;
+        max-width: 400px;
+        margin: 0 auto; /* Центрируем картинку */
+    }
+
+    .game-detail-title {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .detail-right-col {
+        text-align: center;
+    }
+
+    .game-purchase-block {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+/* Эффект при наведении на кнопку покупки */
+.buy-btn:hover {
+    background-color: #e0a800 !important;
+    transform: scale(1.02);
+    transition: 0.3s;
+}
+
+/* Стиль для элементов корзины */
+.cart-item {
+    transition: transform 0.2s;
+}
+
+.cart-item:hover {
+    background-color: #111;
+}
+
+/* Анимация появления страницы */
+.cart-page {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.cart-page { padding: 50px; background: #08080a; min-height: 100vh; color: white; }
+.cart-container { max-width: 900px; margin: 0 auto; }
+
+/* Әр ойынның қатары */
+.cart-item {
+    display: flex;
+    align-items: center;
+    background: #111;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 1px solid #222;
+}
+
+.cart-img {
+    width: 80px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 25px;
+}
+
+.cart-info { flex: 1; }
+.cart-info h3 { margin: 0 0 10px 0; font-size: 20px; }
+.cart-item-price { color: #a855f7; font-weight: bold; font-size: 18px; }
+
+/* Сомма мен батырмалар */
+.cart-summary {
+    margin-top: 40px;
+    background: #16161e;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #a855f7;
+}
+
+.total-box {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.total-price { color: #ffcc00; }
+
+.cart-actions { display: flex; gap: 20px; }
+
+.pay-btn {
+    background: #ffcc00; /* Сары батырма скриншоттағыдай */
+    color: black;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    flex: 2;
+}
+
+.clear-btn {
+    background: transparent;
+    border: 1px solid #ff4444;
+    color: #ff4444;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    flex: 1;
+}
+/* --- Авторизация контейнері --- */
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #08080a; /* Түнгі қара фон */
+  color: #ffffff;
+  padding: 20px;
+}
+
+/* --- Форманың өзі --- */
+.auth-form {
+  background-color: #111; /* Кішкене ашық қара */
+  border: 2px solid #a855f7; /* Күлгін жиек */
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); /* Неон эффектісі */
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px; /* Ені тым үлкен болмауы үшін */
+  text-align: center;
+}
+
+/* Тақырып (ЖҮЙЕГЕ КІРУ / ТІРКЕЛУ) */
+.auth-form h2 {
+  font-size: 28px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px #a855f7;
+}
+
+/* Мәтін енгізу өрістері (Inputs) */
+.auth-form input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+  box-sizing: border-box; /* Padding еніне әсер етпеуі үшін */
+}
+
+/* Өріске фокус болғанда */
+.auth-form input:focus {
+  outline: none;
+  border-color: #ff00ff; /* Ашық қызғылт жиек */
+  box-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
+}
+
+/* Негізгі батырма (КІРУ / ТІРКЕЛУ) */
+.auth-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #a855f7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+/* Батырмаға тінтуірді апарғанда */
+.auth-btn:hover {
+  background-color: #ff00ff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 0, 255, 0.4);
+}
+
+/* Ауыстыру мәтіні (Аккаунт жоқ па?) */
+.toggle-auth {
+  margin-top: 20px;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.toggle-auth:hover {
+  color: #fff;
+  text-decoration: underline;
+}
